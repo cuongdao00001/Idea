@@ -1,0 +1,32 @@
+﻿@model Idea_System.Models.User
+
+<h2>User List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Role</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Department.Name</td>
+                <td>@user.Role.Name</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = user.UserId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = user.UserId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

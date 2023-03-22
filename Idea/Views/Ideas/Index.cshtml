@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Idea_System.Models.Idea>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Topic.Deadline1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Topic.Deadline2)
+        </th>
+    </tr>
+    </table>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Topic.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsEnabled)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Topic.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsEnabled)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.IdeaId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.IdeaId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.IdeaId })
+                    </td>
+                </tr>
+            }
+
+        </table>
